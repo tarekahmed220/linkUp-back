@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
+import { config } from "./config";
 
 export default () => {
   const connect = () => {
     mongoose
-      .connect(
-        "mongodb+srv://tarekahm12:8KYsswePinrw56Ei@cluster0.oec4s.mongodb.net//LinkUp?retryWrites=true&w=majority&appName=Cluster0"
-      )
+      .connect(`${config.DATABASE_URL}`)
       .then(() => {
         console.log("successfully connected to db");
       })
